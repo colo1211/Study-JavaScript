@@ -1,0 +1,40 @@
+<button id="버튼">클릭</button>
+<script>
+  'use strict';
+
+  console.log(this);
+
+  function 함수() {
+    console.log(this);
+  }
+
+  함수();
+  var obj = {
+    data: 'Kim',
+    함수: function () {
+      console.log(this);
+    },
+  };
+  obj.함수();
+
+  var obj2 = {
+    data: {
+      함수: function () {
+        console.log(this);
+      },
+    },
+  };
+  obj2.data.함수();
+
+  // 새로운 객체를 생성하는 기계 (오브젝트 생성 기계, constructor)
+  function machine() {
+    this.이름 = 'Kim';
+  }
+
+  var obj3 = new machine();
+  console.log(obj3);
+
+  document.getElementById('버튼').addEventListener('click', function () {
+    console.log(this);
+  });
+</script>
